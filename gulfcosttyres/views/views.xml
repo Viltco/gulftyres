@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+
+
+      <record id="inherit_fields_in_gulf_cost_tyres" model="ir.ui.view">
+          <field name="name">inherit fields in gulf cost tyres</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_only_form_view"/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='default_code']" position="after">
+                  <field name="dot"/>
+              </xpath>
+          </field>
+      </record>
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="gulfcosttyres.action_window">
+      <field name="name">gulfcosttyres window</field>
+      <field name="res_model">gulfcosttyres.gulfcosttyres</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="gulfcosttyres.action_server">
+      <field name="name">gulfcosttyres server</field>
+      <field name="model_id" ref="model_gulfcosttyres_gulfcosttyres"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="gulfcosttyres" id="gulfcosttyres.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="gulfcosttyres.menu_1" parent="gulfcosttyres.menu_root"/>
+    <menuitem name="Menu 2" id="gulfcosttyres.menu_2" parent="gulfcosttyres.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="gulfcosttyres.menu_1_list" parent="gulfcosttyres.menu_1"
+              action="gulfcosttyres.action_window"/>
+    <menuitem name="Server to list" id="gulfcosttyres" parent="gulfcosttyres.menu_2"
+              action="gulfcosttyres.action_server"/>
+-->
+  </data>
+</odoo>
