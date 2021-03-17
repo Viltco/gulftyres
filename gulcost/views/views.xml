@@ -1,0 +1,156 @@
+<odoo>
+  <data>
+
+      <record id="inherit_fields_in_gulf_cost_tyres_tree" model="ir.ui.view">
+          <field name="name">inherit fields in gulf tree view</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_tree_view"/>
+          <field name="mode">primary</field>
+          <field name="arch" type="xml">
+
+              <field name="name" position="after">
+                  <field name="brand"/>
+              </field>
+              <field name="name" position="before">
+                  <field name="barcode"/>
+              </field>
+              <field name="brand" position="after">
+                  <field name="dot"/>
+                  <field name="shj"/>
+                  <field name="shjsm"/>
+                  <field name="quz"/>
+                  <field name="ain"/>
+                  <field name="ainw"/>
+                  <field name="ajm"/>
+                  <field name="albr"/>
+                  <field name="ban"/>
+                  <field name="abu"/>
+                  <field name="abuold"/>
+                  <field name="mzr"/>
+
+                  <field name="res_stk"/>
+                  <field name="p_inv"/>
+                  <field name="pur_qty"/>
+              </field>
+              <xpath expr="//field[@name='standard_price']" position="before">
+                  <field name="wavrg"/>
+              </xpath>
+              <field name="wavrg" position="before">
+                  <field name="sale1"/>
+              </field>
+              <field name="sale1" position="before">
+                  <field name="sale2"/>
+              </field>
+              <field name="sale2" position="before">
+                  <field name="sale3"/>
+              </field>
+
+              <field name="brand" position="attributes">
+                  <attribute name="string">Brand Code</attribute>
+              </field>
+              <field name="barcode" position="attributes">
+                  <attribute name="string">Item Code</attribute>
+              </field>
+
+              <field name="qty_available" position="attributes">
+                  <attribute name="string">Stock</attribute>
+              </field>
+              <field name="virtual_available" position="attributes">
+                  <attribute name="string">Pur-Ord</attribute>
+              </field>
+
+          </field>
+      </record>
+
+
+      <record id="inherit_fields_in_gulf_cost_tyres_form" model="ir.ui.view">
+          <field name="name">inherit fields in gulf form view</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_only_form_view"/>
+          <field name="arch" type="xml">
+              <xpath expr="//div[@name='button_box']" position="inside">
+                  <button class="oe_stat_button" name="action_view_smart_reserve" type="object" icon="fa-fa-cogs">
+                      <div class="o_field_widget o_stat_info">
+                          <span class="o_stat_value">
+                              <field name="reserve_stock_count" widget="statinfo" class="mr4"/>
+                          </span>
+                          <span class="o_stat_text">Reserved Stock</span>
+                      </div>
+                  </button>
+              </xpath>
+              <xpath expr="//field[@name='barcode']" position="after">
+                  <field name="dot"/>
+              </xpath>
+              <xpath expr="//field[@name='default_code']" position="after">
+                  <field name="brand"/>
+              </xpath>
+              <xpath expr="//field[@name='company_id']" position="after">
+                  <field name="sale1"/>
+              </xpath>
+              <xpath expr="//field[@name='sale1']" position="after">
+                  <field name="sale2"/>
+              </xpath>
+              <xpath expr="//field[@name='sale2']" position="after">
+                  <field name="sale3"/>
+              </xpath>
+              <xpath expr="//field[@name='dot']" position="after">
+                  <field name="p_inv"/>
+                   <field name="pur_qty"/>
+                   <field name="res_stk"/>
+              </xpath>
+<!--              <xpath expr="//field[@name='p_inv']" position="after">-->
+<!--                  <field name="res_stk"/>-->
+<!--              </xpath>-->
+<!--              <xpath expr="//field[@name='res_stk']" position="after">-->
+<!--                  <field name="pur_qty"/>-->
+<!--              </xpath>-->
+
+
+
+
+          </field>
+      </record>
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="gulfcosttyres.action_window">
+      <field name="name">gulfcosttyres window</field>
+      <field name="res_model">gulfcosttyres.gulfcosttyres</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="gulfcosttyres.action_server">
+      <field name="name">gulfcosttyres server</field>
+      <field name="model_id" ref="model_gulfcosttyres_gulfcosttyres"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="gulfcosttyres" id="gulfcosttyres.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="gulfcosttyres.menu_1" parent="gulfcosttyres.menu_root"/>
+    <menuitem name="Menu 2" id="gulfcosttyres.menu_2" parent="gulfcosttyres.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="gulfcosttyres.menu_1_list" parent="gulfcosttyres.menu_1"
+              action="gulfcosttyres.action_window"/>
+    <menuitem name="Server to list" id="gulfcosttyres" parent="gulfcosttyres.menu_2"
+              action="gulfcosttyres.action_server"/>
+-->
+  </data>
+</odoo>
